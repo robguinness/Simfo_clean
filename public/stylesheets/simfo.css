@@ -1,0 +1,157 @@
+body {
+  font: 60% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+}
+
+#simfo-content {
+  width: 73em;
+}
+
+#tabs-top>.ui-tabs-panel {
+  background-color: #F8E5C9;
+}
+
+#tabs-editor {
+  clear: both;
+}
+
+.ui-combobox {
+  height: 21px;
+  margin-left: 0px;
+  margin-right: 0px;
+  vertical-align: bottom;
+  line-height: 21px;
+}
+
+/* NOTE (2011-02-02, msiegel): Don't understand why this isn't working; hacking it instead
+ *
+.ui-autocomplete-loading {
+  background: white url('/css/images/ui-anim_basic_16x16.gif') right center no-repeat;
+}
+ */
+
+.ui-combobox-button {
+  height: 21px;
+  margin-top: 0px;
+}
+
+.editor-elt, .editor-button {
+  display: block;
+  float: left;
+  width: 28%;
+}
+
+.editor-button {
+  width: 15%;
+}
+
+#editor-top {
+  min-height: 8em;
+}
+
+.editor-top-rows, .editor-bottom-rows {
+  width: 62em;
+  height: 30px;
+  clear: both;
+  vertical-align: text-bottom;
+  margin-top: 0px;
+}
+
+.btn-import-export {
+  float: right;
+}
+
+#btn-import-csv
+{
+  width: 12.6em; height: 2.1em; position: relative; top: 0px; left: 0px;
+}
+
+#file-upload-section form {
+  width: 12.6em; height: 2.1em; position: relative; top: 0px; left: 0px;
+  opacity: 0;
+  filter:alpha(opacity: 0);
+  -ms-filter: 'alpha(opacity=0)';
+  filter: alpha(opacity=0);
+  cursor: pointer;
+}
+
+input#import_csv_form_import_csv {
+  position: relative;
+  top: -2.1em;
+  left: 0px;
+  margin: 0;
+  width: 12.6em;
+  height: 2.1em;
+  opacity: 0;
+  filter:alpha(opacity: 0);
+  -ms-filter: 'alpha(opacity=0)';
+  filter: alpha(opacity=0);
+  cursor: pointer;
+}
+
+#labels {
+  font-weight: bold;
+  height: 1.6em;
+}
+
+#tabs-editor>.ui-tabs-panel {
+  height: 30em;
+}
+
+/* Center jqGrid Search modal dialog,
+ * see http://www.trirand.com/jqgridwiki/doku.php?id=wiki:singe_searching#installation
+ */
+.ui-searchFilter table {
+  position:relative;
+  margin: 9em;
+}
+
+#editor-row-btns-3 {
+}
+
+.navigation-button {
+  height: 2.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+#btn-nav-link-left {
+  float: left;
+}
+
+#btn-nav-center-graph {
+  margin-left: 35%;
+  margin-right: auto;
+}
+
+.simfo-version {
+  margin-left: 5%;
+  margin-right: auto;
+  font-style: italic;
+  font-size: x-small;
+  color: #C4C4C4;
+}
+
+#btn-nav-link-right {
+  float: right;
+}
+
+.simfo-grid-alt {
+  background-image: none;
+  background-color: #F9F9FF;
+}
+
+#coming-soon {
+  text-align: center;
+  padding-top: 14em;
+  padding-bottom: 14em;
+}
+
+#dlg-category-form { display: none; }
+#dlg-category-form > label, #dlg-category-form > input { display: block; float: right; }
+#dlg-category-form > label { width: 20em; font-weight: bold; }
+#dlg-category-form > input { width: 50em; }
+#dlg-category-form > .fieldrow { clear: right; }
+#dlg-category-form > input.text { margin-bottom:12px; padding: .4em; }
+#dlg-category-form > fieldset { padding:0; border:10; margin-top:25px; }
+#dlg-category-form > .ui-dialog, #dlg-category-form > .ui-state-error { padding: .3em; }
+#dlg-category-form > .form-instructions { padding: 0.3em; border: 1px solid transparent; }

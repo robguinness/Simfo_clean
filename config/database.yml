@@ -1,22 +1,59 @@
+# MySQL.  Versions 4.1 and 5.0 are recommended.
+#
+# Install the MySQL driver:
+#   gem install mysql2
+#
+# And be sure to use new-style password hashing:
+#   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
+
+# NOTE (2011-04-08, msiegel):
+#   Takes care of connection weirdness due to vagrant VM port forwarding
+<% @db_host = (`uname`.strip == 'Darwin' ? '127.0.0.1' : 'localhost') %>
+
+# The following DRY'ed way to write the yaml comes from this blog post:
+# http://blog.bleything.net/2006/06/27/dry-out-your-database-yml
+common: &common
+  adapter: mysql2
+  encoding: utf8
+  collation: utf8_bin
+  reconnect: false
+  timeout: 5000
+  pool: 5
+  username: simfo
+  password: rer7uppa
+  host: <%= @db_host %>
+
+development:
+  <<: *common
+  database: simfo_development
+
+test:
+  <<: *common
+  database: simfo_test
+
+production:
+  <<: *common
+  database: simfo_production
+
 # SQLite version 3.x
 #   gem install sqlite3
-development:
-  adapter: sqlite3
-  database: db/development.sqlite3
-  pool: 5
-  timeout: 5000
+#development:
+#  adapter: sqlite3
+#  database: db/development.sqlite3
+#  pool: 5
+#  timeout: 5000
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  adapter: sqlite3
-  database: db/test.sqlite3
-  pool: 5
-  timeout: 5000
+#test:
+#  adapter: sqlite3
+#  database: db/test.sqlite3
+#  pool: 5
+#  timeout: 5000
 
-production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
-  timeout: 5000
+#production:
+#  adapter: sqlite3
+#  database: db/production.sqlite3
+#  pool: 5
+#  timeout: 5000

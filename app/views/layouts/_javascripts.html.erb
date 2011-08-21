@@ -1,0 +1,51 @@
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/redmond/jquery-ui.css" type="text/css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/json2.min.js"></script>
+    <script type="text/javascript" src="js/i18n/grid.locale-en.js" ></script>
+    <script type="text/javascript" src="js/jquery.jqGrid.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/jquery.Guid.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.combobox.js"></script>
+    <script type="text/javascript" src="js/jquery.rest.js"></script>
+    <script type="text/javascript" src="js/jquery.fileupload.js"></script>
+    <script type="text/javascript" src="js/raphael-min.js"></script>
+    <script type="text/javascript" src="js/dracula_graffle.js"></script>
+    <script type="text/javascript" src="js/dracula_graph.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/simfo_main.js"></script>
+
+
+  <script type="text/javascript" charset="utf-8">
+    $(function() {
+      $('.upload').fileUpload({
+        //drapDropSupport: false,
+        onLoad: function(event, files, index, xhr, handler) {
+          $("#tbl-relations").trigger("reloadGrid");
+          window.setTimeout(function() {
+            var response = $.parseJSON(xhr.responseText);
+            var num_errs = response.error_line_nums.length;
+            var num_dups = response.duplicate_line_nums.length;
+            var msg = "Imported '" + files[0].name + "'\n\n";
+
+            msg += " Total new relationships: " + response.num_new_relationships + "\n";
+            msg += " Total new entities: " + response.num_new_entities + "\n\n";
+
+            msg += " Total errors: " + num_errs + "\n";
+            if ( num_errs > 0 ) {
+              msg += " Lines: ";
+              msg += response.error_line_nums.join(", ");
+              msg += "\n";
+            }
+            msg += " Total duplicates: " + num_dups + "\n";
+            if ( num_dups > 0 ) {
+              msg += " Lines: ";
+              msg += response.duplicate_line_nums.join(", ");
+              msg += "\n";
+            }
+
+            alert(msg);
+          }, 500);
+        }
+      });
+    });
+  </script>

@@ -1,10 +1,4 @@
 SampleApp::Application.routes.draw do
-  match 'pluralize/:word' => 'categories#pluralize', :via => [:get, :post]
-  match 'relationships/import' => 'relationships#upload', :via => [:post]
-  resources :relationships
-  resources :relationship_types
-  resources :categories
-  resources :entities
 
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]

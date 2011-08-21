@@ -1,0 +1,96 @@
+  <div id="simfo-content">
+    <div id="tabs-top">
+      <ul>
+        <li><a href="#tab-editor">New</a></li>
+      </ul>
+      <div id="tab-editor">
+        <div id="editor-top">
+          <div id="labels" class="editor-top-rows">
+            <label class="editor-elt" for="from-entity">From Entity</label>
+            <label class="editor-elt" for="relation">Relation</label>
+            <label class="editor-elt" for="to-entity">To Entity</label>
+          </div>
+          <div class="editor-top-rows" id="editor-row-btns-1">
+            <div class="editor-elt">
+              <select id="from-entity"></select>
+            </div>
+            <div class="editor-elt">
+              <select class="editor-elt" id="relation"></select>
+            </div>
+            <div class="editor-elt">
+              <select class="editor-elt" id="to-entity"></select>
+            </div>
+            <a class="editor-button btn-disabled-unless-new-data-entered" id="btn-add" href="#">Add</a>
+          </div>
+          <div class="editor-top-rows" id="editor-row-btns-2">
+            <div class="editor-elt">
+              <select id="from-entity-filter"></select>
+            </div>
+            <div class="editor-elt">
+              <select class="editor-elt" id="relation-filter"></select>
+            </div>
+            <div class="editor-elt">
+              <select class="editor-elt" id="to-entity-filter"></select>
+            </div>
+          </div>
+        </div>
+        <div id="tabs-editor">
+          <ul>
+            <li><a href="#tab-table">Table</a></li>
+            <li><a href="#tab-graph">Graph</a></li>
+            <li><a href="#tab-tree">Tree</a></li>
+          </ul>
+          <div id="tab-table">
+            <table id="tbl-relations"></table>
+            <div id="tbl-pager"></div>
+          </div>
+          <div id="tab-graph">
+            <button class="zoom-button" id="btn-zoom-in"></button>
+            <button class="zoom-button" id="btn-zoom-out"></button>
+            <div id="canvas-graph"></div>
+          </div>
+          <div id="tab-tree">
+            <div id="coming-soon">Coming soon!</div>
+          </div>
+        </div>
+        <div class="navigation-button-rows">
+          <button class="navigation-button btn-disabled-unless-row-selected" id="btn-nav-link-left"></button>
+          <button class="navigation-button btn-disabled-unless-row-or-entity-selected" id="btn-nav-link-right"></button>
+          <button class="navigation-button btn-disabled-unless-row-or-entity-selected" id="btn-nav-center-graph">View Selected in Graph</button>
+        </div>
+        <div class="editor-bottom-rows" id="editor-row-btns-3">
+          <a class="editor-button-bottom btn-disabled-unless-row-selected" id="btn-delete-selected" href="#">Delete Selected</a>
+          <a class="editor-button-bottom btn-disabled-unless-row-selected" id="btn-reverse-selected" href="#">Add Reverse of Selected</a>
+          <span class="simfo-version">Simfo 0.10.6</span>
+          <div id="file-upload-section" style="display: block; width: 13em; height: 2.4em; overflow: hidden; float: right; vertical-align: text-bottom;">
+            <a class="editor-button-bottom btn-import-export" id="btn-import-csv" href="#">Import from CSV</a>
+            <%= form_for(:import_csv_form, :url => { :controller => "relationships", :action => :upload },
+                         :html => { :class => 'upload', :multipart => true }) do |f| %>
+              <%= f.file_field :import_csv %>
+            <% end %>
+          </div>
+          <a class="editor-button-bottom btn-import-export" id="btn-export-csv" href="#">Export as CSV</a>
+        </div>
+        <div id="dlg-category-form" title="Added New Category">
+          <p class="form-instructions">
+            You are attempting to add a category to Simfo.
+            Please indicate the singular and plural forms.</p>
+          <form>
+            <fieldset>
+              <div class="fieldrow">
+                <label for="singular">Singular:</label>
+                <input type="text" name="singular" id="singular" class="text ui-widget-content ui-corner-all" />
+              </div>
+              <div class="fieldrow">
+                <label for="plural">Plural:</label>
+                <input type="text" name="plural" id="plural" class="text ui-widget-content ui-corner-all" />
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
